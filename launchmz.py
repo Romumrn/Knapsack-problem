@@ -1,5 +1,7 @@
 import json
 import os
+from time import perf_counter 
+
 
 with open('Test.json') as json_file: 
     data = json.load(json_file) 
@@ -29,6 +31,14 @@ for instance in data:
     fichier.write("poid = "+str(poid).replace("'", "")+";\n")
     fichier.close()
 
-    cmd = "time minizinc --solver gecode sac.mzn"
+    cmd = "minizinc --solver gecode sac.mzn"
+    # Start the stopwatch / counter 
+    tps1 = perf_counter()
+
     os.system(cmd) 
+
+    # Start the stopwatch / counter 
+    tps2 = perf_counter()
+    print(tps2 - tps1) 
+
 
