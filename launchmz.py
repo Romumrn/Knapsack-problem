@@ -3,7 +3,7 @@ import os
 from time import perf_counter 
 
 
-with open('Test.json') as json_file: 
+with open('instances_TH_DL.json') as json_file: 
     data = json.load(json_file) 
 
 
