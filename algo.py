@@ -86,6 +86,7 @@ def recherche(ens_parties, contrainte):
     duree_max = 0
     solution = []
     for partie in ens_parties:#un choix possible de fichiers
+        print("je recherche") 
         duree = duree_totale(partie)
         taille = taille_totale(partie)
         if taille <= contrainte and duree > duree_max:
