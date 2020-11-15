@@ -2,6 +2,7 @@ from algo import *
 from generation_instance import *
 from time import perf_counter 
 import sys
+import subprocess
 '''
 
 #génération des instances
@@ -73,3 +74,33 @@ for key,value in dict_instances_normal.items():
     print("résultat pour le rapport",len(liste_resultat_rapport[0]),liste_resultat_rapport[1])
     res.write(instance + "\tglouton rapport\t"+str(tps2 - tps1)+"\t"+str(len(liste_resultat_rapport[0]))+'\t'+str(liste_resultat_rapport[1])+'\n' )
 
+print( "Methode solver minizinc")
+poidmax = 20000
+for inst in dict_instances_normal:
+    print( inst)
+    prix = []
+    poid = []
+    for objet in dict_instances_normal[inst]:
+        prix.append( str(dict_instances_normal[inst][objet][0]*1000000)[0:4] )
+        poid.append( str(dict_instances_normal[inst][objet][1]*1000000)[0:4] ) 
+    
+    n = len(prix)
+    fichier = open("valeur.dzn", "w")
+    fichier.write("n = "+str(n)+";\n")
+    fichier.write("maximum = "+str(poidmax)+";\n")
+    fichier.write("prix = "+str(prix).replace("'", "")+";\n")
+    fichier.write("poid = "+str(poid).replace("'", "")+";\n")
+    fichier.close()
+
+    cmd = "minizinc --solver gecode sac.mzn"
+    # Start the stopwatch / counter 
+    tps1 = perf_counter()
+    out = subprocess.run( cmd ,shell=True,stdout=subprocess.PIPE)
+    outsplit = str(out.stdout).split('n')
+    nbobject =  outsplit[0].strip("b'").replace("\\", "") 
+    poid =  outsplit[1].strip("Price = ").replace("\\", "") 
+    print("résultat minizinc",nbobject,poid)
+    # Start the stopwatch / counter 
+    tps2 = perf_counter()
+    print(tps2 - tps1) 
+    res.write(instance + "\tminizinc\t"+str(tps2 - tps1)+"\t"+str(nbobject)+'\t'+str(poid)+'\n' )
