@@ -63,7 +63,7 @@ for key,value in dict_instances_normal.items():
     tps2 = perf_counter()
     print("temps  d'execution : " , tps2 - tps1) 
     print("résultat pour la taille",len(liste_resultat_taille[0]),liste_resultat_taille[1]) 
-    res.write(instance + "\tglouton taille\t"+str(tps2 - tps1)+"\t"+str(len(liste_resultat_duree[0]))+'\t'+str(liste_resultat_duree[1])+'\n' )
+    res.write(instance + "\tglouton taille\t"+str(tps2 - tps1)+"\t"+str(len(liste_resultat_taille[0]))+'\t'+str(liste_resultat_taille[1])+'\n' )
 
     print( "Methode glouton rapport")
     tps1 = perf_counter()
@@ -71,5 +71,5 @@ for key,value in dict_instances_normal.items():
     tps2 = perf_counter()
     print("temps  d'execution : " , tps2 - tps1) 
     print("résultat pour le rapport",len(liste_resultat_rapport[0]),liste_resultat_rapport[1])
-    res.write(instance + "\tglouton rapport\t"+str(tps2 - tps1)+"\t"+str(len(liste_resultat_duree[0]))+'\t'+str(liste_resultat_duree[1])+'\n' )
+    res.write(instance + "\tglouton rapport\t"+str(tps2 - tps1)+"\t"+str(len(liste_resultat_rapport[0]))+'\t'+str(liste_resultat_rapport[1])+'\n' )
 
