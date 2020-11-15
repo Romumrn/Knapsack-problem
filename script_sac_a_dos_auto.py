@@ -47,7 +47,7 @@ for key,value in dict_instances_normal.items():
     # tps2 = perf_counter()
     # print("temps  d'execution : " , tps2 - tps1) 
     # print("résultat brut", len(liste_resultat_brut[0]),liste_resultat_brut[1])
-    # res.write(instance + "\tbrut\t"+str(tps2 - tps1)+"\t"+str(len(liste_resultat_duree[0]))+'\t'+str(liste_resultat_duree[1])+'\n' )
+    # res.write(instance + "\tbrut\t"+str(tps2 - tps1)+"\t"+str(len(liste_resultat_brut[0]))+'\t'+str(liste_resultat_brut[1])+'\n' )
 
     print( "Methode glouton durée")
     tps1 = perf_counter()
