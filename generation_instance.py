@@ -50,7 +50,7 @@ def generation_plusieurs_instances(nb_objet,nb_instance,info_taille,info_duree):
         dict_instance[num_instance]=instance_seul
     return dict_instance
 
-
+generation_plusieurs_instances(nb_objet=1000,nb_instance=100,info_taille="high",info_duree="light")
 generation_plusieurs_instances(nb_objet=1000,nb_instance=100,info_taille="high",info_duree="light")
 generation_plusieurs_instances(nb_objet=1000,nb_instance=100,info_taille="high",info_duree="high")
 generation_plusieurs_instances(nb_objet=1000,nb_instance=100,info_taille="light",info_duree="light")

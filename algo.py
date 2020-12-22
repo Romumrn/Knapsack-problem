@@ -1,10 +1,7 @@
-videos = [('Video1', 114, 4.57), ('Video2', 32, 0.630),('Video3', 20, 1.65), ('Video4', 4, 0.085),('Video5', 18, 2.15), ('Video6', 80, 2.71),('Video7', 5, 0.320)]
-
 import json
 
 
-
-#Les différents composants de l'algorithùe glouton
+#Les différents composants de l'algorithme glouton
 
 def dict_instance_to_liste_instance(dict_instance):
     liste_instance=list()
